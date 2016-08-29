@@ -11,7 +11,7 @@ public class Club {
 		this.association = association;
 	}
 
-	public void setRating( BigDecimal rating ) {
+	public void setUEFARating( BigDecimal rating ) {
 		this.rating = rating;
 	}
 

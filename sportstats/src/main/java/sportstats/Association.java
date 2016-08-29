@@ -6,7 +6,7 @@ public class Association {
 
 	private BigDecimal rating;
 
-	public void setRating( BigDecimal valueOf ) {
+	public void setUEFARating( BigDecimal valueOf ) {
 		this.rating = rating;
 	}
 
