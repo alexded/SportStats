@@ -10,4 +10,8 @@ public class Match {
 		this.guestClub = guestClub;
 	}
 
+	public Club getHomeClub() { return this.homeClub; }
+
+	public Club getGuestClub() { return this.guestClub; }
+
 }
