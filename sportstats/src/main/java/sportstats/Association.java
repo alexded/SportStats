@@ -6,9 +6,12 @@ public class Association {
 
 	private BigDecimal rating;
 
-	public void setUEFARating( BigDecimal valueOf ) {
-		//TODO: Git rulezz
+	public void setUEFARating( BigDecimal rating ) {
 		this.rating = rating;
+	}
+	
+	public BigDecimal getRating() {
+		return rating;
 	}
 
 }

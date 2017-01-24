@@ -10,11 +10,15 @@ public class League {
 
 	public League( Association association ) {
 		this.association = association;
-		this.matches = new ArrayList<Match>();
+		this.matches = new ArrayList<>();
 	}
 
 	public void addMatch( Match match ) {
 		this.matches.add( match );
+	}
+	
+	public Association getAssociation() {
+		return this.association;
 	}
 
 }
