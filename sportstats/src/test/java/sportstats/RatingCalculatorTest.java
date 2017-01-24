@@ -6,28 +6,41 @@ import org.junit.Assert;
 import org.junit.Test;
 
 
-public class MatchRatingCalculatorTest {
+public class RatingCalculatorTest {
 	
-	@Test public void test201608221456() {
+	@Test public void match_nullRating() {
 		
-		BigDecimal club01UEFARating = BigDecimal.valueOf( 80d );
-		BigDecimal club02UEFARating = BigDecimal.valueOf( 60d );
-		BigDecimal club01LeagueRating = BigDecimal.valueOf( 90d );
-		BigDecimal club02LeagueRating = BigDecimal.valueOf( 80d );
+		BigDecimal club01UEFARating = BigDecimal.valueOf( 0d );
+		BigDecimal club02UEFARating = BigDecimal.valueOf( 0d );
+		BigDecimal club01LeagueRating = BigDecimal.valueOf( 0d );
+		BigDecimal club02LeagueRating = BigDecimal.valueOf( 0d );
 		
-		Club club01 = new Club();
-		Club club02 = new Club();
+		Club club01 = new Club( club01UEFARating, club01LeagueRating );
+		Club club02 = new Club( club02UEFARating, club02LeagueRating );
+		
 		Match match = new Match( club01, club02 );
-		club01.setUEFARating( club01UEFARating);
-		club02.setUEFARating( club02UEFARating );
-		club01.setLeagueRating( club01LeagueRating );
-		club02.setLeagueRating( club02LeagueRating );
 		
-		MatchRatingCalculator matchRatingCalculator = new MatchRatingCalculator();
-		BigDecimal rating = matchRatingCalculator.calculate( match );
+		RatingCalculator matchRatingCalculator = new RatingCalculator();
+		BigDecimal rating = matchRatingCalculator.calculateMatchRating( match );
 		
-		Assert.assertEquals( BigDecimal.valueOf( 78.261 ), rating );
+		Assert.assertEquals( BigDecimal.valueOf( 0L ).setScale( RatingCalculator.MATCH_RATING_SCALE ), rating );
 		
 	}
+	
+	@Test public void club_nullRating() {
+		
+		BigDecimal clubUEFARating = BigDecimal.valueOf( 0d );
+		BigDecimal clubLeagueRating = BigDecimal.valueOf( 0d );
+		
+		Club club = new Club( clubUEFARating, clubLeagueRating );
+		
+		RatingCalculator matchRatingCalculator = new RatingCalculator();
+		BigDecimal rating = matchRatingCalculator.calculateClubRating( club );
+		
+		Assert.assertEquals( BigDecimal.valueOf( 0L ).setScale( RatingCalculator.MATCH_RATING_SCALE ), rating );
+		
+	}
+	
+	
 
 }

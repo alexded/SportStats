@@ -8,8 +8,11 @@ public class Club {
 	private BigDecimal leagueRating;
 	private BigDecimal uefaRating;
 
-	public void setUEFARating( BigDecimal rating ) { 	this.uefaRating = rating; }
-	public void setLeagueRating( BigDecimal leagueRating ) { this.leagueRating = leagueRating; 	}
+	public Club( BigDecimal uefaRating, BigDecimal leagueRating ) {
+		this.uefaRating = uefaRating;
+		this.leagueRating = leagueRating;
+	}
+	
 	public BigDecimal getLeagueRating() { return this.leagueRating; }
 	public BigDecimal getUEFARating() { return this.uefaRating; }
 
